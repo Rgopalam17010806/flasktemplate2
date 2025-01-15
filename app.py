@@ -3,9 +3,8 @@ from flask import Flask, flash, redirect, render_template, url_for
 from flask_login import current_user, login_required, login_user, logout_user, LoginManager
 from flask_cors import CORS
 from models import Login, Register, User
-from flask_bcrypt import Bcrypt
+from werkzeug.security import generate_password_hash, check_password_hash 
 
-bcrypt = Bcrypt()
 
 @login_manager.user_loader
 def load_user(user_id):
