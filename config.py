@@ -3,9 +3,13 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_cors import CORS
 from flask_migrate import Migrate
 from flask_login import LoginManager
+from flask_bcrypt import Bcrypt
+
+
 
 login_manager = LoginManager()
 app = Flask(__name__)
+
 CORS(app)
 
 app.config["SQLALCHEMY_DATABASE_URI"] = "sqlite:///database.db"
@@ -15,3 +19,4 @@ app.config['SECRET_KEY'] = 'thissecretkey'
 db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 login_manager.init_app(app)
+bcrypt = Bcrypt(app)

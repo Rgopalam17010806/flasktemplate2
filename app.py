@@ -37,6 +37,11 @@ def login():
             flash('Invalid email or password','danger')
     return render_template('login.html', form=form, registerform=registerform)
 
+#forgotpassword
+@app.route('/forgotpassword')
+def forgotpassword():
+    return render_template('forgotpassword.html')
+
 
 #registration
 @app.route("/signup", methods=["GET", "POST"])
